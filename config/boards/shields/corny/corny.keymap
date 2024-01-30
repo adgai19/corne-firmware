@@ -14,8 +14,8 @@ combos {
         compatible = "zmk,combos";
         combo_esc {
             timeout-ms = <50>;
-            key-positions = <18 20>;
-            bindings = <&kp LC(TAB)>;
+            key-positions = <1 2>;
+            bindings = <&kp RET>;
         };
     };
         keymap {
@@ -62,7 +62,7 @@ combos {
    &kp  TAB    &kp EXCL      &kp AT     &kp LBKT   &kp RBKT    &kp PIPE                                &kp EQUAL     &kp N7  &kp N8 &kp N9 &kp STAR &kp BSPC
    &kp  LCTRL  &kp HASH      &kp DLLR   &kp LPAR   &kp RPAR    &kp GRAVE                               &kp BSLH      &kp N4  &kp N5 &kp N6 &kp PLUS &kp LGUI
    &kp  LSHFT  &kp PERCENT   &kp CARET  &kp LBRC   &kp RBRC    &kp TILDE    &bootloader  &bootloader   &kp AMPS     &kp N1  &kp N2  &kp N3 &kp N0 &key_repeat
-                             &trans   &kp LGUI     &kp SPACE                                           &kp RET       &kp LALT    &trans
+                             &trans   &kp LGUI     &kp SPACE                                           &kp LALT       &kp BSPC    &trans
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
