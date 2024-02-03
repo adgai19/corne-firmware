@@ -21,6 +21,18 @@ combos {
         combo_ctrl_tab {
             timeout-ms = <50>;
             key-positions = <16 19>;
+            bindings = <&kp LC(TAB)>;
+        };
+
+        combo_ctrl_shift_tab {
+            timeout-ms = <50>;
+            key-positions = <16 20>;
+            bindings = <&kp LC(LS(TAB))>;
+        };
+
+        combo_shift_tab {
+            timeout-ms = <50>;
+            key-positions = <16 21>;
             bindings = <&kp LS(TAB)>;
         };
     };
