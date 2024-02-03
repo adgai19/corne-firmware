@@ -12,12 +12,6 @@
     };
 combos {
         compatible = "zmk,combos";
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <1 2>;
-            bindings = <&kp RET>;
-        };
-
         combo_ctrl_tab {
             timeout-ms = <50>;
             key-positions = <16 19>;
@@ -34,6 +28,12 @@ combos {
             timeout-ms = <50>;
             key-positions = <16 21>;
             bindings = <&kp LS(TAB)>;
+        };
+
+        combo_key_repeat {
+            timeout-ms = <50>;
+            key-positions = <3 4>;
+            bindings = <&key_repeat>;
         };
     };
         keymap {
