@@ -43,13 +43,6 @@ scw: single_quote_caps_word{
        tapping-term-ms = <200>;
        bindings = <&kp SQT>, <&caps_word>;
      };
-mo_tog: behavior_mo_tog {
-          compatible = "zmk,behavior-hold-tap";
-#binding-cells = <2>;
-          flavor = "hold-preferred";
-          tapping-term-ms = <200>;
-          bindings = <&mo>, <&tog>;
-        };
   };
   combos {
     compatible = "zmk,combos";
@@ -90,7 +83,7 @@ mo_tog: behavior_mo_tog {
         &kp TAB       &kp Q      &kp D     &kp R     &kp W     &kp B                                 &kp J         &kp F         &kp U       &kp P     &kp SEMI    &kp MINUS
         &tdc   &kp A      &rpi LALT S     &rpi LCTRL H      &rpi LGUI T    &kp G                                 &kp Y         &rpi LGUI N         &rpi LCTRL E       &rpi LALT O     &kp I       &scw
         &skq LSHFT     &kp Z      &kp X     &kp M     &kp C     &kp V       &kp C_MUTE  &none         &kp K         &kp L         &kp COMMA   &kp DOT   &kp FSLH    &skq RSFT
-        &mo_tog 2 2  &mt LCTRL TAB       &mt LGUI BSPC                                   &mt LSHIFT RET  &mt LALT SPACE  &mo_tog 1 1
+        &mo 2  &mt LCTRL TAB       &mt LGUI BSPC                                   &mt LSHIFT RET  &mt LALT SPACE  &mo 1
         >;
 
       sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
