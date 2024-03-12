@@ -22,6 +22,29 @@ skq: sticky_key_quick_release {
        quick-release;
        ignore-modifiers;
      };
+rpi_left {
+       compatible = "zmk,behavior-hold-tap";
+#binding-cells = <2>;
+       flavor = "tap-preferred";
+       tapping-term-ms = <200>;
+       quick-tap-ms = <200>;
+       require-prior-idle-ms = <125>;
+       bindings = <&kp>, <&kp>;
+       hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35>;    // <---[[right-hand keys]]
+     };
+
+
+rpi_right {
+       compatible = "zmk,behavior-hold-tap";
+#binding-cells = <2>;
+       flavor = "tap-preferred";
+       tapping-term-ms = <200>;
+       quick-tap-ms = <200>;
+       require-prior-idle-ms = <125>;
+       bindings = <&kp>, <&kp>;
+       hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29>;    // <---[[right-hand keys]]
+     };
+
 rpi: require_prior_idle {
        compatible = "zmk,behavior-hold-tap";
 #binding-cells = <2>;
@@ -43,6 +66,7 @@ scw: single_quote_caps_word{
        tapping-term-ms = <200>;
        bindings = <&kp SQT>, <&caps_word>;
      };
+
   };
   combos {
     compatible = "zmk,combos";
@@ -76,8 +100,8 @@ scw: single_quote_caps_word{
     default_layer {
       bindings = <
         &kp TAB       &kp Q      &kp D            &kp R           &kp W           &kp B                                 &kp J           &kp F           &kp U           &kp P         &kp SEMI    &kp MINUS
-        &tdc          &kp A      &rpi LALT S      &rpi LCTRL H    &rpi LGUI T     &kp G                                 &kp Y           &kp N           &rpi LCTRL E   &rpi LALT O    &kp I       &scw
-        &skq LSHFT    &kp Z      &kp X            &kp M           &kp C           &kp V       &kp C_MUTE  &none         &kp K           &rpi LGUI L     &kp COMMA       &kp DOT       &kp FSLH    &skq RSFT
+        &tdc          &kp A      &rpi_left LALT S      &rpi_left LCTRL H    &rpi_left LGUI T     &kp G                                 &kp Y           &kp N           &rpi_right LCTRL E   &rpi_right LALT O    &kp I       &scw
+        &skq LSHFT    &kp Z      &kp X            &kp M           &kp C           &kp V       &kp C_MUTE  &none         &kp K           &rpi_right LGUI L     &kp COMMA       &kp DOT       &kp FSLH    &skq RSFT
                                                   &mo 2           &mt LCTRL TAB   &mt LGUI BSPC                         &mt LSHIFT RET  &mt LALT SPACE  &mo 1
         >;
 
@@ -96,7 +120,7 @@ scw: single_quote_caps_word{
 
     raise_layer {
       bindings = <
-        &kp  TAB    &kp EXCL      &kp AT     &kp LBKT          &kp RBKT         &kp PIPE                                &kp EQUAL    &kp N7     &kp N8   &kp N9  &kp STAR  &kp BSPC
+        &kp  TAB    &kp EXCL      &kp AT     &kp LBKT          &kp RBKT         &kp PIPE                                &kp EQUAL    &kp N7     &kp N8   &kp N9  &kp STAR  &kp SPC
         &kp  LCTRL  &kp HASH      &kp DLLR   &mt LSHIFT LPAR   &mt LGUI RPAR    &kp GRAVE                               &kp BSLH     &kp N4     &kp N5   &kp N6  &kp PLUS  &kp LGUI
         &kp  LSHFT  &kp PERCENT   &kp CARET  &kp LBRC          &kp RBRC         &kp TILDE    &bootloader  &bootloader   &kp AMPS     &kp N1     &kp N2   &kp N3  &kp N0    &key_repeat
                                                           &trans   &kp LGUI     &kp SPACE                               &kp LALT     &kp BSPC   &trans
@@ -110,7 +134,7 @@ scw: single_quote_caps_word{
         &kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5                           &kp N6     &kp N7    &kp N8  &kp N9      &kp N0    &kp BSPC
         &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                     &kp LEFT   &kp DOWN  &kp UP  &kp RIGHT   &trans    &kp F12
         &kp LSHFT   &kp A         &kp F2        &kp F3        &kp F4        &kp F5       &bootloader  &none  &kp F6     &kp F7    &kp F8  &kp F9      &kp F10   &kp F11
-                                                &trans     &trans       &kp SPACE                            &kp RET  &trans   &trans
+                                                &trans     &trans       &kp SPACE                            &kp RET    &trans   &trans
         >;
 
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
