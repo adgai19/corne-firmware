@@ -16,16 +16,16 @@
   behaviors {
 skq: sticky_key_quick_release {
        compatible = "zmk,behavior-sticky-key";
-#binding-cells = <1>;
+#binding-cells = <2>;
        bindings = <&kp>;
        release-after-ms = <1000>;
        quick-release;
        ignore-modifiers;
      };
-rpi_left {
+rpi_left: require_prior_idle_l {
        compatible = "zmk,behavior-hold-tap";
-#binding-cells = <2>;
        flavor = "tap-preferred";
+#binding-cells = <2>;
        tapping-term-ms = <200>;
        quick-tap-ms = <200>;
        require-prior-idle-ms = <125>;
@@ -34,7 +34,7 @@ rpi_left {
      };
 
 
-rpi_right {
+rpi_right: require_prior_idle_r {
        compatible = "zmk,behavior-hold-tap";
 #binding-cells = <2>;
        flavor = "tap-preferred";
@@ -100,7 +100,7 @@ scw: single_quote_caps_word{
     default_layer {
       bindings = <
         &kp TAB       &kp Q      &kp D            &kp R           &kp W           &kp B                                 &kp J           &kp F           &kp U           &kp P         &kp SEMI    &kp MINUS
-        &tdc          &kp A      &rpi_left LALT S      &rpi_left LCTRL H    &rpi_left LGUI T     &kp G                                 &kp Y           &kp N           &rpi_right LCTRL E   &rpi_right LALT O    &kp I       &scw
+        &kp ESC          &kp A      &rpi_left LALT S      &rpi_left LCTRL H    &rpi_left LGUI T     &kp G                                 &kp Y           &kp N           &rpi_right LCTRL E   &rpi_right LALT O    &kp I       &scw
         &skq LSHFT    &kp Z      &kp X            &kp M           &kp C           &kp V       &kp C_MUTE  &none         &kp K           &rpi_right LGUI L     &kp COMMA       &kp DOT       &kp FSLH    &skq RSFT
                                                   &mo 2           &mt LCTRL TAB   &mt LGUI BSPC                         &mt LSHIFT RET  &mt LALT SPACE  &mo 1
         >;
