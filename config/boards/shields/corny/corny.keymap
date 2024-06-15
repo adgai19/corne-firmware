@@ -141,7 +141,7 @@ ZMK_LAYER(default_layer,
         &kp LSHFT    &kp Z      &kp X            &kp M           &kp C           &kp V       &kp C_MUTE  &none         &kp K           &hmr LGUI L     &kp COMMA       &kp DOT       &kp FSLH    &kp RSFT
                                                   &mo 2           &mt LCTRL TAB   &mt LGUI BSPC                         &mt LSHIFT RET  &mt LALT SPACE  &mo 1,
 
-      <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>
+      &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
 )
 //
 //       sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp LEFT RIGHT>;
