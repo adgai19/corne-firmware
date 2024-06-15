@@ -122,7 +122,7 @@ ZMK_BEHAVIOR(hrm, hold_tap,
 ZMK_LAYER(default_layer,
 //       bindings = <
         &kp TAB       &kp Q      &kp D            &kp R           &kp W           &kp B                                 &kp J           &kp F           &kp U           &kp P         &kp SEMI    &kp MINUS
-        &kp ESC          &kp A      &hrm LALT S      &hrm LCTRL H    &hrm LGUI T     &kp G                                 &kp Y           &kp N           &hrm LCTRL E   &hrm LALT O    &kp I       &scw
+        &kp ESC          &kp A      &hrm LALT S      &hrm LCTRL H    &hrm LGUI T     &kp G                                 &kp Y           &kp N           &hrm LCTRL E   &hrm LALT O    &kp I       &kp SQT
         &skq LSHFT    &kp Z      &kp X            &kp M           &kp C           &kp V       &kp C_MUTE  &none         &kp K           &hrm LGUI L     &kp COMMA       &kp DOT       &kp FSLH    &skq RSFT
                                                   &mo 2           &mt LCTRL TAB   &mt LGUI BSPC                         &mt LSHIFT RET  &mt LALT SPACE  &mo 1
 //         >;
