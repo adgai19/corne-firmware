@@ -7,8 +7,8 @@
 
 #define ___ &trans
 
-#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
-#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5 // left hand
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5 // right hand
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumbs
 
 #define DEF 0  
@@ -135,10 +135,16 @@ ZMK_HOLD_TAP(hmr,
 //   keymap {
 //     compatible = "zmk,keymap";
 //
+
+ZMK_CONDITIONAL_LAYER(LOWER HIGHER, TRI)
+
+ZMK_COMBOS(ctrl_tab, &kp LC(TAB), LT2 LT1, ALL)
+ZMK_COMBOS(ctrl_shift_tab, &kp LC(LS(TAB)), LT3 LT2, ALL)
+
 ZMK_LAYER(default_layer,
         &kp TAB       &kp Q      &kp D            &kp R           &kp W           &kp B                                 &kp J           &kp F           &kp U           &kp P         &kp SEMI    &kp MINUS
-        &kp ESC          &kp A      &hml LALT S      &hml LCTRL H    &hml LGUI T     &kp G                                 &kp Y           &kp N           &hmr LCTRL E   &hmr LALT O    &kp I       &kp SQT
-        &kp LSHFT    &kp Z      &kp X            &kp M           &kp C           &kp V       &kp C_MUTE  &none         &kp K           &hmr LGUI L     &kp COMMA       &kp DOT       &kp FSLH    &kp RSFT
+        &kp ESC       &kp A      &hml LALT S      &hml LCTRL H    &hml LGUI T     &kp G                                 &kp Y           &kp N           &hmr LCTRL E   &hmr LALT O    &kp I       &kp SQT
+        &kp LSHFT     &kp Z      &kp X            &kp M           &kp C           &kp V       &kp C_MUTE  &none         &kp K           &hmr LGUI L     &kp COMMA       &kp DOT       &kp FSLH    &kp RSFT
                                                   &mo 2           &mt LCTRL TAB   &mt LGUI BSPC                         &mt LSHIFT RET  &mt LALT SPACE  &mo 1,
 
       &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
