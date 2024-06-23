@@ -137,7 +137,7 @@ ZMK_HOLD_TAP(hmr,
 //
 
 ZMK_CONDITIONAL_LAYER(LOWER HIGHER, TRI)
-// ZMK_COMBOS(ctrl_shift_tab, &kp LC(LS(TAB)), LT3 LT2, ALL)
+ZMK_COMBOS(ctrl_shift_tab, &kp LC(LS(TAB)), LT3 LT2, ALL)
 // ZMK_COMBOS(ctrl_tab, &kp LC(TAB), LT2 LT1, ALL)
 
 ZMK_LAYER(default_layer,
