@@ -33,117 +33,15 @@ ZMK_HOLD_TAP(hmr,
     hold-trigger-on-release;
     bindings = <&kp>, <&kp>;
 )
-// MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
-// MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
-//
-// MAKE_HRM(hml_repeat, &kp, &key_repeat, KEYS_R THUMBS)  // used for HRM-combo
-// MAKE_HRM(hmr_lpar_lt, &kp, &lpar_lt, KEYS_L THUMBS)    // "    "   "   "
-// MAKE_HRM(hmr_rpar_gt, &kp, &rpar_gt, KEYS_L THUMBS)    // "    "   "   "
-
-// / {
-//   conditional_layers {
-//     compatible = "zmk,conditional-layers";
-//     tri_layer {
-//       if-layers = <1 2>;
-//       then-layer = <3>;
-//     };
-//   };
-//   mt {
-//     retro-tap;
-//   };
-//   behaviors {
-// skq: sticky_key_quick_release {
-//        compatible = "zmk,behavior-sticky-key";
-// #binding-cells = <1>;
-//        bindings = <&kp>;
-//        release-after-ms = <1000>;
-//        quick-release;
-//        ignore-modifiers;
-//      };
-// rpi_left: require_prior_idle_l {
-//        compatible = "zmk,behavior-hold-tap";
-//        flavor = "tap-preferred";
-// #binding-cells = <2>;
-//        tapping-term-ms = <200>;
-//        quick-tap-ms = <200>;
-//        require-prior-idle-ms = <125>;
-//        bindings = <&kp>, <&kp>;
-//        hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35>;    // <---[[right-hand keys]]
-//      };
-//
-//
-// rpi_right: require_prior_idle_r {
-//        compatible = "zmk,behavior-hold-tap";
-// #binding-cells = <2>;
-//        flavor = "tap-preferred";
-//        tapping-term-ms = <200>;
-//        quick-tap-ms = <200>;
-//        require-prior-idle-ms = <125>;
-//        bindings = <&kp>, <&kp>;
-//        hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29>;    // <---[[right-hand keys]]
-//      };
-//
-// rpi: require_prior_idle {
-//        compatible = "zmk,behavior-hold-tap";
-// #binding-cells = <2>;
-//        flavor = "tap-preferred";
-//        tapping-term-ms = <200>;
-//        quick-tap-ms = <200>;
-//        require-prior-idle-ms = <125>;
-//        bindings = <&kp>, <&kp>;
-//      };
-// tdc: tap_dance_0 {
-//        compatible = "zmk,behavior-tap-dance";
-// #binding-cells = <0>;
-//        tapping-term-ms = <200>;
-//        bindings = <&kp ESC>, <&kp CAPS>;
-//      };
-// scw: single_quote_caps_word{
-//        compatible = "zmk,behavior-tap-dance";
-// #binding-cells = <0>;
-//        tapping-term-ms = <200>;
-//        bindings = <&kp SQT>, <&caps_word>;
-//      };
-//
-//   };
-//   combos {
-//     compatible = "zmk,combos";
-//     combo_ctrl_tab {
-//       timeout-ms = <50>;
-//       key-positions = <16 19>;
-//       bindings = <&kp LC(TAB)>;
-//     };
-//
-//     combo_ctrl_shift_tab {
-//       timeout-ms = <50>;
-//       key-positions = <16 20>;
-//       bindings = <&kp LC(LS(TAB))>;
-//     };
-//
-//     combo_shift_tab {
-//       timeout-ms = <50>;
-//       key-positions = <16 21>;
-//       bindings = <&kp LS(TAB)>;
-//     };
-//
-//     combo_key_repeat {
-//       timeout-ms = <50>;
-//       key-positions = <3 4>;
-//       bindings = <&key_repeat>;
-//     };
-//   };
-//   keymap {
-//     compatible = "zmk,keymap";
-//
 
 ZMK_CONDITIONAL_LAYER(LOWER HIGHER, TRI)
 ZMK_COMBO(ctrl_shift_tab, &kp LC(LS(TAB)), LT3 LT2, ALL)
 ZMK_COMBO(ctrl_tab, &kp LC(TAB), LT2 LT1, ALL)
 
 ZMK_LAYER(default_layer,
-        &kp TAB       &kp Q      &kp D            &kp R           &kp W           &kp B                                 &kp J           &kp F           &kp U           &kp P         &kp SEMI    &kp MINUS
-        &kp ESC       &kp A      &hml LALT S      &hml LCTRL H    &hml LGUI T     &kp G                                 &kp Y           &kp N           &hmr LCTRL E   &hmr LALT O    &kp I       &kp SQT
-        &kp LSHFT     &kp Z      &kp X            &kp M           &kp C           &kp V       &kp C_MUTE  &none         &kp K           &hmr LGUI L     &kp COMMA       &kp DOT       &kp FSLH    &kp RSFT
+        &kp TAB       &kp Q           &kp D            &kp R           &kp W           &kp B                                 &kp J           &kp F           &kp U           &kp P          &kp SEMI          &kp MINUS
+        &kp ESC       &kp LALT A      &hml LGUI S      &hml LCTRL H    &hml LSHFT T     &kp G                                &kp Y           &hmr RSHFT N    &hmr RCTRL E    &hmr RGUI O    &hmr RALT I       &kp SQT
+        &kp LSHFT     &kp Z           &kp X            &kp M           &kp C           &kp V       &kp C_MUTE  &none         &kp K           &kp L           &kp COMMA       &kp DOT        &kp FSLH          &kp RSFT
                                                   &mo 2           &mt LCTRL TAB   &mt LGUI BSPC                         &mt LSHIFT RET  &mt LALT SPACE  &mo 1,
 
       &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
