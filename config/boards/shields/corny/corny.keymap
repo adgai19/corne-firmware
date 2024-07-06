@@ -81,9 +81,10 @@ ZMK_COMBO(ctrl_tab, &kp LC(TAB), LT2 LT1, ALL)
         &kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5                           &kp N6     &kp N7    &kp N8  &kp N9      &kp N0    &kp BSPC
         &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                     &kp LEFT   &kp DOWN  &kp UP  &kp RIGHT   &trans    &kp F12
         &kp LSHFT   &kp A         &kp F2        &kp F3        &kp F4        &kp F5       &bootloader  &none  &kp F6     &kp F7    &kp F8  &kp F9      &kp F10   &kp F11
-                                                &trans     &trans       &kp SPACE                            &kp RET    &trans   &trans ;>
+                                                &trans     &trans       &kp SPACE                            &kp RET    &trans   &trans >;
       sensor-bindings = <
       &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
+      >;
     };
   };
 };
