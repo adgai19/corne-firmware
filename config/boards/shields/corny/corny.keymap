@@ -38,34 +38,53 @@ ZMK_CONDITIONAL_LAYER(LOWER HIGHER, TRI)
 ZMK_COMBO(ctrl_shift_tab, &kp LC(LS(TAB)), LT3 LT2, ALL)
 ZMK_COMBO(ctrl_tab, &kp LC(TAB), LT2 LT1, ALL)
 
-ZMK_LAYER(default_layer,
+/ {
+  keymap {
+    compatible = "zmk,keymap";
+    default_layer {
+      bindings = <
         &kp TAB       &kp Q           &kp D            &kp R           &kp W           &kp B                                 &kp J           &kp F           &kp U           &kp P          &kp SEMI          &kp MINUS
         &kp ESC       &hml LALT A     &hml LGUI S      &hml LCTRL H    &hml LSHFT T     &kp G                                &kp Y           &hmr RSHFT N    &hmr RCTRL E    &hmr RGUI O    &hmr RALT I       &kp SQT
         &kp LSHFT     &kp Z           &kp X            &kp M           &kp C           &kp V       &kp C_MUTE  &none         &kp K           &kp L           &kp COMMA       &kp DOT        &kp FSLH          &kp RSFT
-                                                  &mo 2           &mt LCTRL TAB   &mt LGUI BSPC                         &mt LSHIFT RET  &mt LALT SPACE  &mo 1,
-
+                                                  &mo 2           &mt LCTRL TAB   &mt LGUI BSPC                         &mt LSHIFT RET  &mt LALT SPACE  &mo 1>;
+      sensor-bindings = <
       &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
-)
+      >;
+    };
 
-ZMK_LAYER(lower_layer,
+
+    lower_layer {
+      bindings = <
         &kp TAB     &kp F11      &kp F12        &kp K_CUT       &kp K_COPY    &kp K_PASTE                               &kp TAB       &kp BSPC      &kp SPACE     &kp RET     &kp N0  &kp BSPC
         &bt BT_CLR  &kp F6       &mt LALT F7    &mt LCTRL F8    &mt LGUI F9   &kp F10                                   &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT   &trans  &kp F12
         &kp LSHFT   &kp F1       &kp F2         &kp F3          &kp F4        &kp F5       &bootloader  &bootloader     &kp C_PP      &kp C_NEXT    &kp C_PREV    &kp CAPS    &trans  &trans
-                                                &trans          &kp LGUI      &kp SPACE                                 &kp RET       &kp RALT      &trans,
+                                                &trans          &kp LGUI      &kp SPACE                                 &kp RET       &kp RALT      &trans>;
+      sensor-bindings = <
       &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
-      )
+      >;
+    };
+        raise_layer{
 
- ZMK_LAYER(raise_layer,
+      bindings = <
+
         &kp  TAB    &kp EXCL      &kp AT     &kp LBKT          &kp RBKT         &kp PIPE                                &kp EQUAL    &kp N7     &kp N8   &kp N9  &kp STAR  &kp SPC
         &kp  LCTRL  &kp HASH      &kp DLLR   &mt LSHIFT LPAR   &mt LGUI RPAR    &kp GRAVE                               &kp BSLH     &kp N4     &kp N5   &kp N6  &kp PLUS  &kp LGUI
         &kp  LSHFT  &kp PERCENT   &kp CARET  &kp LBRC          &kp RBRC         &kp TILDE    &bootloader  &bootloader   &kp AMPS     &kp N1     &kp N2   &kp N3  &kp N0    &key_repeat
-                                                          &trans   &kp LGUI     &kp SPACE                               &kp LALT     &kp BSPC   &trans,
+                                                          &trans   &kp LGUI     &kp SPACE                               &kp LALT     &kp BSPC   &trans >;
+      sensor-bindings = <
       &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
-)
-  ZMK_LAYER(   tri_layer,
+      >;
+    };
+
+    tri_layer {
+      bindings = <
         &kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5                           &kp N6     &kp N7    &kp N8  &kp N9      &kp N0    &kp BSPC
         &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                     &kp LEFT   &kp DOWN  &kp UP  &kp RIGHT   &trans    &kp F12
         &kp LSHFT   &kp A         &kp F2        &kp F3        &kp F4        &kp F5       &bootloader  &none  &kp F6     &kp F7    &kp F8  &kp F9      &kp F10   &kp F11
-                                                &trans     &trans       &kp SPACE                            &kp RET    &trans   &trans,
+                                                &trans     &trans       &kp SPACE                            &kp RET    &trans   &trans >;
+      sensor-bindings = <
       &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
-      )
+      >;
+    };
+  };
+};
