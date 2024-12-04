@@ -1,6 +1,0 @@
-[submodule "zmk-config/zmk-helpers"]
-	path = zmk-config/zmk-helpers
-	url = https://github.com/urob/zmk-helpers.git
-[submodule "zmk-helpers"]
-	path = zmk-helpers
-	url = https://github.com/urob/zmk-helpers.git
