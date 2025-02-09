@@ -44,7 +44,7 @@ ZMK_COMBO(ctrl_tab, &kp LC(TAB), LT2 LT1, ALL)
     default_layer {
       bindings = <
         &kp TAB       &kp Q           &kp D            &kp R           &kp W           &kp B                                 &kp J           &kp F           &kp U           &kp P          &kp SEMI          &kp MINUS
-        &kp ESC       &hml LALT A     &hml LGUI S      &hml LCTRL H    &hml LSHFT T     &kp G                                &kp Y           &hmr RSHFT N    &hmr RCTRL E    &hmr RGUI O    &hmr RALT I       &kp SQT
+        &kp ESC       &hml LSHFT A    &hml LCTRL S     &hml LALT H     &hml LGUI T     &kp G                                 &kp Y           &hmr RGUI N     &hmr RALT E     &hmr RCTRL O   &hmr RSHFT I      &kp SQT
         &kp LSHFT     &kp Z           &kp X            &kp M           &kp C           &kp V       &kp C_MUTE  &none         &kp K           &kp L           &kp COMMA       &kp DOT        &kp FSLH          &kp RSFT
                                                   &mo 2           &mt LCTRL TAB   &mt LGUI BSPC                         &mt LSHIFT RET  &mt LALT SPACE  &mo 1>;
       sensor-bindings = <
@@ -55,10 +55,10 @@ ZMK_COMBO(ctrl_tab, &kp LC(TAB), LT2 LT1, ALL)
 
     lower_layer {
       bindings = <
-        &kp TAB     &kp F11      &kp F12        &kp K_CUT       &kp K_COPY    &kp K_PASTE                               &kp TAB       &kp BSPC      &kp SPACE     &kp RET     &kp N0  &kp BSPC
-        &bt BT_CLR  &kp F6       &mt LALT F7    &mt LCTRL F8    &mt LGUI F9   &kp F10                                   &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT   &trans  &kp F12
-        &kp LSHFT   &kp F1       &kp F2         &kp F3          &kp F4        &kp F5       &bootloader  &bootloader     &kp C_PP      &kp C_NEXT    &kp C_PREV    &kp CAPS    &trans  &trans
-                                                &trans          &kp LGUI      &kp SPACE                                 &kp RET       &kp RALT      &trans>;
+        &kp TAB     &kp F11        &kp F12        &kp K_CUT       &kp K_COPY    &kp K_PASTE                               &kp TAB       &kp BSPC        &kp SPACE     &kp RET           &kp N0          &kp BSPC
+        &bt BT_CLR  &hml F6 LSHFT  &hml LCTRL F7  &hml LALT F8    &hml LGUI F9  &kp F10                                   &kp LEFT      &hmr RGUI DOWN  &hmr RALT UP  &hmr RCTRL RIGHT  &hmr RSHFT ESC  &kp F12
+        &kp LSHFT   &kp F1         &kp F2         &kp F3          &kp F4        &kp F5       &bootloader  &bootloader     &kp C_PP      &kp C_NEXT      &kp C_PREV    &kp CAPS          &trans          &trans
+                                                  &trans          &kp LGUI      &kp SPACE                                 &kp RET       &kp RALT      &trans>;
       sensor-bindings = <
       &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN
       >;
