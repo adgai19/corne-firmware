@@ -27,13 +27,13 @@ ZMK_HOLD_TAP(hmr,
 /* existing combos */
 /* bracket combos */
 
-ZMK_COMBO(paren_l, &kp LPAR, LT2 LT3, ALL)
-ZMK_COMBO(brace_l, &kp LBRC, LT3 LT4, ALL)
-ZMK_COMBO(bracket_l, &kp LBKT, LM2 LM3, ALL)
-
-ZMK_COMBO(paren_r, &kp LPAR, RT2 RT3, ALL)
-ZMK_COMBO(brace_r, &kp LBRC, RT3 RT4, ALL)
-ZMK_COMBO(bracket_r, &kp LBKT, RM2 RM3, ALL)
+/* ZMK_COMBO(paren_l, &kp LPAR, LT2 LT3, ALL) */
+/* ZMK_COMBO(brace_l, &kp LBRC, LT3 LT4, ALL) */
+/* ZMK_COMBO(bracket_l, &kp LBKT, LM2 LM3, ALL) */
+/**/
+/* ZMK_COMBO(paren_r, &kp LPAR, RT2 RT3, ALL) */
+/* ZMK_COMBO(brace_r, &kp LBRC, RT3 RT4, ALL) */
+/* ZMK_COMBO(bracket_r, &kp LBKT, RM2 RM3, ALL) */
 
 /* utility combos */
 
