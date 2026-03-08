@@ -3,7 +3,6 @@
 #include <zmk-helpers/helper.h>
 #include <zmk-helpers/key-labels/42.h>
 
-/ {
 
 ZMK_HOLD_TAP(hml,
     flavor = "balanced";
@@ -45,6 +44,8 @@ ZMK_COMBO(bracket_r, &kp LBKT &kp RBKT, RM2 RM3, ALL)
 
 ZMK_COMBO(delete_word, &kp LC(BSPC), LB2 LB3, ALL)
 ZMK_COMBO(raycast, &kp LG(SPACE), LT3 RT3, ALL)
+
+/ {
 
 keymap {
   compatible = "zmk,keymap";
