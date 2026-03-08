@@ -37,8 +37,8 @@ ZMK_HOLD_TAP(hmr,
 
 /* utility combos */
 
-ZMK_COMBO(delete_word, &kp C_BSPC, LB2 LB3, ALL)
-ZMK_COMBO(raycast, &kp LGUI(SPACE), LT3 RT3, ALL)
+/* ZMK_COMBO(delete_word, &kp C_BSPC, LB2 LB3, ALL) */
+/* ZMK_COMBO(raycast, &kp LGUI(SPACE), LT3 RT3, ALL) */
 
 /* ZMK_COMBO(ctrl_shift_tab, &kp LC(LS(TAB)), LT3 LT2, ALL) */
 /* ZMK_COMBO(ctrl_tab, &kp LC(TAB), LT2 LT1, ALL) */
