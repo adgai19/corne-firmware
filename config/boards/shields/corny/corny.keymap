@@ -22,7 +22,7 @@ ZMK_HOLD_TAP(hmr,
     bindings = <&kp>, <&kp>;
 )
 
-ZMK_CONDITIONAL_LAYER(LOWER,HIGHER, TRI)
+/* ZMK_CONDITIONAL_LAYER(LOWER,HIGHER, TRI) */
 
 /* existing combos */
 /* bracket combos */
