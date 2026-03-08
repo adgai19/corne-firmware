@@ -25,25 +25,39 @@ ZMK_HOLD_TAP(hmr,
 ZMK_CONDITIONAL_LAYER(LOWER,HIGHER, TRI)
 
 /* existing combos */
-
-ZMK_COMBO(ctrl_shift_tab, &kp LC(LS(TAB)), LT3 LT2, ALL)
-ZMK_COMBO(ctrl_tab, &kp LC(TAB), LT2 LT1, ALL)
-ZMK_COMBO(opt_space, &kp LALT(SPACE), LM4 RM4, ALL)
-
 /* bracket combos */
 
-ZMK_COMBO(paren_l, &kp LPAR &kp RPAR, LT2 LT3, ALL)
-ZMK_COMBO(brace_l, &kp LBRC &kp RBRC, LT3 LT4, ALL)
-ZMK_COMBO(bracket_l, &kp LBKT &kp RBKT, LM2 LM3, ALL)
+ZMK_COMBO(paren_l, &kp LPAR, LT2 LT3, ALL)
+ZMK_COMBO(brace_l, &kp LBRC, LT3 LT4, ALL)
+ZMK_COMBO(bracket_l, &kp LBKT, LM2 LM3, ALL)
 
-ZMK_COMBO(paren_r, &kp LPAR &kp RPAR, RT2 RT3, ALL)
-ZMK_COMBO(brace_r, &kp LBRC &kp RBRC, RT3 RT4, ALL)
-ZMK_COMBO(bracket_r, &kp LBKT &kp RBKT, RM2 RM3, ALL)
+ZMK_COMBO(paren_r, &kp LPAR, RT2 RT3, ALL)
+ZMK_COMBO(brace_r, &kp LBRC, RT3 RT4, ALL)
+ZMK_COMBO(bracket_r, &kp LBKT, RM2 RM3, ALL)
 
 /* utility combos */
 
-ZMK_COMBO(delete_word, &kp LC(BSPC), LB2 LB3, ALL)
-ZMK_COMBO(raycast, &kp LG(SPACE), LT3 RT3, ALL)
+ZMK_COMBO(delete_word, &kp C_BSPC, LB2 LB3, ALL)
+ZMK_COMBO(raycast, &kp LGUI(SPACE), LT3 RT3, ALL)
+
+/* ZMK_COMBO(ctrl_shift_tab, &kp LC(LS(TAB)), LT3 LT2, ALL) */
+/* ZMK_COMBO(ctrl_tab, &kp LC(TAB), LT2 LT1, ALL) */
+/* ZMK_COMBO(opt_space, &kp LALT(SPACE), LM4 RM4, ALL) */
+/**/
+/* /* bracket combos */ */
+/**/
+/* ZMK_COMBO(paren_l, &kp LPAR &kp RPAR, LT2 LT3, ALL) */
+/* ZMK_COMBO(brace_l, &kp LBRC &kp RBRC, LT3 LT4, ALL) */
+/* ZMK_COMBO(bracket_l, &kp LBKT &kp RBKT, LM2 LM3, ALL) */
+/**/
+/* ZMK_COMBO(paren_r, &kp LPAR &kp RPAR, RT2 RT3, ALL) */
+/* ZMK_COMBO(brace_r, &kp LBRC &kp RBRC, RT3 RT4, ALL) */
+/* ZMK_COMBO(bracket_r, &kp LBKT &kp RBKT, RM2 RM3, ALL) */
+/**/
+/* /* utility combos */ */
+/**/
+/* ZMK_COMBO(delete_word, &kp LC(BSPC), LB2 LB3, ALL) */
+/* ZMK_COMBO(raycast, &kp LG(SPACE), LT3 RT3, ALL) */
 
 / {
 
