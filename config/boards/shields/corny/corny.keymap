@@ -22,6 +22,38 @@ ZMK_HOLD_TAP(hmr,
     bindings = <&kp>, <&kp>;
 )
 
+/* Navigation */
+ZMK_COMBO(home_combo,       &kp HOME,        RM1 RM2,    ALL)
+ZMK_COMBO(end_combo,        &kp END,         RM2 RM3,    ALL)
+ZMK_COMBO(pgup_combo,       &kp PG_UP,       RT1 RT2,    ALL)
+ZMK_COMBO(pgdn_combo,       &kp PG_DN,       RT2 RT3,    ALL)
+
+/* Editing */
+ZMK_COMBO(delete_word,      &kp LA(BSPC),    LB2 LB3,    ALL)
+ZMK_COMBO(esc_combo,        &kp ESC,         LM0 LM1,    ALL)
+ZMK_COMBO(tab_combo,        &kp TAB,         RM0 RM1,    ALL)
+
+/* Brackets */
+ZMK_COMBO(paren_l,          &kp LPAR,        LT2 LT3,    ALL)
+ZMK_COMBO(paren_r,          &kp RPAR,        LT3 LT4,    ALL)
+ZMK_COMBO(brace_l,          &kp LBRC,        LB1 LB2,    ALL)
+ZMK_COMBO(brace_r,          &kp RBRC,        LT4 LT5,    ALL)
+ZMK_COMBO(bracket_l,        &kp LBKT,        LM2 LM3,    ALL)
+ZMK_COMBO(bracket_r,        &kp RBKT,        LM3 LM4,    ALL)
+
+/* App / window switching */
+ZMK_COMBO(raycast,          &kp LG(SPACE),   LT3 RT3,    ALL)
+ZMK_COMBO(app_switch,       &kp LA(TAB),     LT1 LT2,    ALL)
+ZMK_COMBO(window_switch,    &kp LA(GRAVE),   RT4 RT5,    ALL)
+
+/* Tab navigation */
+ZMK_COMBO(ctrl_shift_tab,   &kp LC(LS(TAB)), LT0 LT1,    ALL)
+ZMK_COMBO(ctrl_tab,         &kp LC(TAB),     LT2 LT1,    ALL)
+
+/* Misc */
+ZMK_COMBO(tmux_prefix,      &kp LC(T),       LB0 LB1,    ALL)
+ZMK_COMBO(opt_space,        &kp LA(SPACE),   LM4 RM4,    ALL)
+
 / {
 
 keymap {
@@ -32,7 +64,7 @@ keymap {
 &kp TAB       &kp Q        &kp W        &kp F        &kp P        &kp B                          &kp J        &kp L        &kp U        &kp Y        &kp SEMI       &kp MINUS
 &kp ESC       &hml LSHFT A &hml LCTRL R &hml LALT S  &hml LGUI T  &kp G                          &kp M        &hmr RGUI N  &hmr RALT E  &hmr RCTRL I  &hmr RSHFT O   &kp SQT
 &kp LSHFT     &kp Z        &kp X        &kp C        &kp D        &kp V      &kp C_MUTE &none     &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH       &kp RSFT
-                                 &mo 2           &mt LCTRL TAB   &mt LGUI BSPC                  &mt LSHIFT RET  &mt LALT SPACE  &mo 1
+                                 &mo 2           &mt LCTRL TAB   &mt LGUI SPACE                 &mt LSHIFT RET  &mt LALT BSPC   &mo 1
     >;
 
     sensor-bindings = <
@@ -61,7 +93,7 @@ keymap {
 
   TRI {
     bindings = <
-&trans &trans &trans &trans &trans &trans         &kp VOL_UP &kp MUTE &kp VOL_DN &trans &trans &trans
+&trans &trans &trans &trans &trans &trans         &kp C_VOL_UP &kp C_MUTE &kp C_VOL_DN &trans &trans &trans
 &trans &trans &trans &trans &trans &trans         &kp LEFT   &kp DOWN &kp UP     &kp RIGHT &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans     &trans &trans &trans &trans &trans &trans
                          &trans &trans &trans                  &trans &trans &trans

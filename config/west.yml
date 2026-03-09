@@ -71,7 +71,7 @@ manifest:
       path: modules/zmk/unicode
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: main
+      revision: v0.3
 
     # Temporarily overload Zephyr until
     # https://github.com/zmkfirmware/zephyr/pull/40 is merged.
