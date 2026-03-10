@@ -127,7 +127,7 @@ keymap {
   MEDIA_layer {
     display-name = "Media";
     bindings = <
-   &trans    &trans    &trans    &trans     &trans     &trans      &trans      &trans       &trans       &trans      &trans  &trans
+   &none   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &bt BT_CLR  &trans       &trans       &trans      &sys_reset  &bootloader
    &trans    &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &trans      &kp C_PREV  &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT  &trans  &trans
    &trans    &trans    &kp RALT  &trans     &trans     &trans  &trans &trans  &trans  &trans  &trans  &trans  &trans  &trans
                                  &trans     &trans     &trans      &kp C_STOP  &kp C_PP     &kp C_MUTE
