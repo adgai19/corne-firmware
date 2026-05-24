@@ -1,0 +1,4 @@
+name: zmk-keyboard-corny
+build:
+  settings:
+    board_root: .

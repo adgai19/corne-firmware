@@ -17,6 +17,8 @@ build := absolute_path('.build')
 out := absolute_path('firmware')
 draw := absolute_path('draw')
 
+export ZEPHYR_TOOLCHAIN_VARIANT := "zephyr"
+
 # parse build.yaml and filter targets by expression
 _parse_targets $expr:
     #!/usr/bin/env bash
@@ -33,7 +35,7 @@ _build_single $board $shield $snippet $artifact *west_args:
 
     echo "Building firmware for $artifact..."
     west build -s zmk/app -d "$build_dir" -b $board {{ west_args }} ${snippet:+-S "$snippet"} -- \
-        -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
+        ${shield:+-DSHIELD="$shield"}
 
     if [[ -f "$build_dir/zephyr/zmk.uf2" ]]; then
         mkdir -p "{{ out }}" && cp "$build_dir/zephyr/zmk.uf2" "{{ out }}/$artifact.uf2"
