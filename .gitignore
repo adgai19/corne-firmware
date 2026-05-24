@@ -1,3 +1,17 @@
-uf2/
-firmware.zip
+# Build output
+.build/
+firmware/
 *.uf2
+firmware.zip
+
+# West workspace (fetched by west update)
+.west/
+zmk/
+zephyr/
+modules/
+zmk-helpers/
+zmk-rgbled-widget/
+
+# macOS
+.DS_Store
+**/.DS_Store
