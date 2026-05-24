@@ -52,6 +52,39 @@ build expr *west_args:
         just _build_single "$board" "$shield" "$snippet" "$artifact" {{ west_args }}
     done
 
+# flash firmware to left, right, or both halves (double-tap reset first)
+# usage: just flash left | just flash right | just flash all
+flash side="all": (build side)
+    #!/usr/bin/env bash
+    set -euo pipefail
+    volume="/Volumes/XIAO-SENSE"
+
+    _flash_one() {
+        local uf2="$1"
+        echo "→ Double-tap reset on the keyboard half, then press Enter..."
+        read -r
+        echo "  Waiting for $volume..."
+        for i in $(seq 1 30); do
+            [[ -d "$volume" ]] && break
+            sleep 1
+        done
+        [[ ! -d "$volume" ]] && echo "Timed out waiting for $volume" >&2 && exit 1
+        echo "  Flashing $uf2..."
+        cp "{{ out }}/$uf2" "$volume/"
+        echo "  Done — drive will eject automatically."
+    }
+
+    if [[ "{{ side }}" == "all" ]]; then
+        _flash_one "corny_left+rgbled_adapter-seeeduino_xiao_ble.uf2"
+        _flash_one "corny_right+rgbled_adapter-seeeduino_xiao_ble.uf2"
+    elif [[ "{{ side }}" == "left" ]]; then
+        _flash_one "corny_left+rgbled_adapter-seeeduino_xiao_ble.uf2"
+    elif [[ "{{ side }}" == "right" ]]; then
+        _flash_one "corny_right+rgbled_adapter-seeeduino_xiao_ble.uf2"
+    else
+        echo "Unknown side '{{ side }}' — use left, right, or all" >&2 && exit 1
+    fi
+
 # clear build cache and artifacts
 clean:
     rm -rf {{ build }} {{ out }}
@@ -63,6 +96,29 @@ clean-all: clean
 # clear nix cache
 clean-nix:
     nix-collect-garbage --delete-old
+
+# generate wallpaper SVG + PNG (urob-style vertical stack, dark theme)
+# override resolution: just draw-wallpaper width=1920 height=1080
+draw-wallpaper width="2560" height="1440": draw
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if ! keymap -c "{{ draw }}/wallpaper-config.yaml" \
+        draw "{{ draw }}/keymap.yaml" \
+        --dts-layout "{{ config }}/boards/shields/corny/corny-layouts.dtsi" \
+        --select-layers Base Nav Sym Num Fn Combos \
+        >"{{ draw }}/wallpaper.svg" 2>&1; then
+        echo "Available layers:" >&2
+        python3 -c "import yaml; d=yaml.safe_load(open('{{ draw }}/keymap.yaml')); print('\n'.join('  ' + l for l in d['layers']))" >&2
+        exit 1
+    fi
+    rsvg-convert \
+        --width={{ width }} --height={{ height }} \
+        --keep-aspect-ratio \
+        --background-color="#11111b" \
+        "{{ draw }}/wallpaper.svg" \
+        -o "{{ draw }}/wallpaper.png"
+    echo "Done → {{ draw }}/wallpaper.png"
+
 
 # parse & plot keymap
 draw:
@@ -117,3 +173,6 @@ test $testpath *FLAGS:
         cp ${build_dir}/keycode_events.log ${config_dir}/keycode_events.snapshot
     fi
     diff -auZ ${config_dir}/keycode_events.snapshot ${build_dir}/keycode_events.log
+
+
+# BASE NAV  SYM  NUM  MEDIA BLE  

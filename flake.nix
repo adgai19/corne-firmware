@@ -37,6 +37,7 @@
               pkgs.yq # Make sure yq resolves to python-yq.
 
               keymap_drawer
+              pkgs.librsvg  # rsvg-convert: SVG → PNG for wallpaper generation
 
               # -- Used by just_recipes and west_commands. Most systems already have them. --
               # pkgs.gawk
