@@ -34,36 +34,36 @@ ZMK_HOLD_TAP(hmr,
 /* ── Combos ───────────────────────────────────────────────── */
 
 /* Navigation */
-ZMK_COMBO(pgup_combo,       &kp PG_UP,       RT1 RT2,    ALL)
-ZMK_COMBO(pgdn_combo,       &kp PG_DN,       RT2 RT3,    ALL)
+ZMK_COMBO(pgup_combo,       &kp PG_UP,       RT1 RT2)
+ZMK_COMBO(pgdn_combo,       &kp PG_DN,       RT2 RT3)
 
 /* Vim search */
-ZMK_COMBO(fslash_combo,     &kp FSLH,        RM1 RM2,    ALL)
-ZMK_COMBO(qmark_combo,      &kp QMARK,       RM2 RM3,    ALL)
+ZMK_COMBO(fslash_combo,     &kp FSLH,        RM1 RM2)
+ZMK_COMBO(qmark_combo,      &kp QMARK,       RM2 RM3)
 
 /* Editing */
-ZMK_COMBO(delete_word,      &kp LA(BSPC),    LB2 LB3,    ALL)
-ZMK_COMBO(esc_combo,        &kp ESC,         LM0 LM1,    ALL)
-ZMK_COMBO(tab_combo,        &kp TAB,         RM0 RM1,    ALL)
+ZMK_COMBO(delete_word,      &kp LA(BSPC),    LB2 LB3)
+ZMK_COMBO(esc_combo,        &kp ESC,         LM0 LM1)
+ZMK_COMBO(tab_combo,        &kp TAB,         RM0 RM1)
 
 /* Brackets */
-ZMK_COMBO(paren_l,          &kp LPAR,        LT2 LT3,    ALL)
-ZMK_COMBO(paren_r,          &kp RPAR,        LT3 LT4,    ALL)
-ZMK_COMBO(brace_l,          &kp LBRC,        LB1 LB2,    ALL)
-ZMK_COMBO(brace_r,          &kp RBRC,        LT4 LT5,    ALL)
-ZMK_COMBO(bracket_l,        &kp LBKT,        LM2 LM3,    ALL)
-ZMK_COMBO(bracket_r,        &kp RBKT,        LM3 LM4,    ALL)
+ZMK_COMBO(paren_l,          &kp LPAR,        LT2 LT3)
+ZMK_COMBO(paren_r,          &kp RPAR,        LT3 LT4)
+ZMK_COMBO(brace_l,          &kp LBRC,        LB1 LB2)
+ZMK_COMBO(brace_r,          &kp RBRC,        LT4 LT5)
+ZMK_COMBO(bracket_l,        &kp LBKT,        LM2 LM3)
+ZMK_COMBO(bracket_r,        &kp RBKT,        LM3 LM4)
 
 /* App / window switching */
-ZMK_COMBO(raycast,          &kp LG(SPACE),   LT3 RT3,    ALL)
+ZMK_COMBO(raycast,          &kp LG(SPACE),   LT3 RT3)
 
 /* Tab navigation */
-ZMK_COMBO(ctrl_shift_tab,   &kp LC(LS(TAB)), LT0 LT1,    ALL)
+ZMK_COMBO(ctrl_shift_tab,   &kp LC(LS(TAB)), LT0 LT1)
 
 /* Misc */
-ZMK_COMBO(tmux_prefix,      &kp LC(T),       LB0 LB1,    ALL)
-ZMK_COMBO(opt_space,        &kp LA(SPACE),   LM4 RM4,    ALL)
-ZMK_COMBO(squote,           &kp SQT,         RB4 RB5,    ALL)
+ZMK_COMBO(tmux_prefix,      &kp LC(T),       LB0 LB1)
+ZMK_COMBO(opt_space,        &kp LA(SPACE),   LM4 RM4)
+ZMK_COMBO(squote,           &kp SQT,         RB4 RB5)
 
 / {
 

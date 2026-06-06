@@ -1,0 +1,21 @@
+#include "corny.dtsi"
+
+/ {
+    chosen {
+        zmk,kscan = &mock_kscan;
+        zmk,matrix_transform = &default_transform;
+        zmk,physical-layout = &foostan_corne_6col_layout;
+    };
+
+    mock_kscan: mock_kscan_0 {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+};
+
+/* Disable the real kscan — dongle has no matrix */
+&kscan0 {
+    status = "disabled";
+};

@@ -3,3 +3,6 @@ config SHIELD_CORNY_LEFT
 
 config SHIELD_CORNY_RIGHT
     def_bool $(shields_list_contains,corny_right)
+
+config SHIELD_CORNY_DONGLE
+    def_bool $(shields_list_contains,corny_dongle)

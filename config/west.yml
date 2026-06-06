@@ -41,7 +41,7 @@
 manifest:
   defaults:
     remote: urob
-    revision: v0.3 # Pin everything to v0.3
+    revision: main
 
   remotes:
     - name: urob
@@ -50,10 +50,13 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    - name: adgai19
+      url-base: git@github-personal:adgai19
 
   projects:
     - name: zmk
-      remote: zmkfirmware
+      remote: adgai19
+      revision: merge-urob-battery
       import: app/west.yml
 
     # ZMK modules
@@ -71,23 +74,7 @@ manifest:
       path: modules/zmk/unicode
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: v0.3
-
-    # Temporarily overload Zephyr until
-    # https://github.com/zmkfirmware/zephyr/pull/40 is merged.
-    - name: zephyr
-      revision: v3.5.0+zmk-fixes
-      clone-depth: 1
-      import:
-        # Only enable most commonly used boards. For less common hardware one
-        # may need to enable additional modules.
-        name-allowlist:
-          - cmsis
-          - hal_nordic
-          - hal_rpi_pico
-          - hal_stm32
-          - lvgl
-          - tinycrypt
+      revision: main
 
   self:
     path: config

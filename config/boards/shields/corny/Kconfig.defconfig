@@ -1,16 +1,27 @@
 if SHIELD_CORNY_LEFT
-
 config ZMK_KEYBOARD_NAME
     default "Corne"
-
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
-
 endif
-
 if SHIELD_CORNY_LEFT || SHIELD_CORNY_RIGHT
-
 config ZMK_SPLIT
     default y
-
+endif
+if SHIELD_CORNY_DONGLE
+config ZMK_KEYBOARD_NAME
+    default "Corne"
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+config ZMK_SPLIT
+    default y
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
+config ZMK_USB
+    default y
+# 2 peripherals + 5 BT profiles
+config BT_MAX_CONN
+    default 7
+config BT_MAX_PAIRED
+    default 7
 endif

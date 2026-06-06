@@ -11,9 +11,21 @@
 #   - board: nice_nano_v2
 #     shield: reviung41
 #
----
+# ---
+# include:
+#   - board: seeeduino_xiao_ble
+#     shield: corny_left rgbled_adapter
+#   - board: seeeduino_xiao_ble
+#     shield: corny_right rgbled_adapter
+#---
 include:
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble/nrf52840/zmk
     shield: corny_left rgbled_adapter
-  - board: seeeduino_xiao_ble
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  - board: xiao_ble/nrf52840/zmk
     shield: corny_right rgbled_adapter
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+  - board: xiao_ble/nrf52840/zmk
+    shield: corny_dongle rgbled_adapter
+  - board: xiao_ble/nrf52840/zmk
+    shield: settings_reset

@@ -5,7 +5,7 @@
 #   cp /mnt/data/Downloads/firmware.zip .
 #   rm *.uf2
 #   unzip firmware.zip
-#   cp corny_left\ rgbled_adapter-seeeduino_xiao_ble-zmk.uf2 /run/media/adgai/XIAO-SENSE
+#   cp corny_left\ rgbled_adapter-xiao_ble_nrf52840_zmk-zmk.uf2 /run/media/adgai/XIAO-SENSE
 #
 #
 
@@ -18,6 +18,7 @@ out := absolute_path('firmware')
 draw := absolute_path('draw')
 
 export ZEPHYR_TOOLCHAIN_VARIANT := "zephyr"
+export ZEPHYR_BASE := absolute_path('modules/zephyr/zephyr')
 
 # parse build.yaml and filter targets by expression
 _parse_targets $expr:
@@ -31,6 +32,7 @@ _build_single $board $shield $snippet $artifact *west_args:
     #!/usr/bin/env bash
     set -euo pipefail
     artifact="${artifact:-${shield:+${shield// /+}-}${board}}"
+    artifact="${artifact//\//_}"
     build_dir="{{ build / '$artifact' }}"
 
     echo "Building firmware for $artifact..."
@@ -54,16 +56,17 @@ build expr *west_args:
         just _build_single "$board" "$shield" "$snippet" "$artifact" {{ west_args }}
     done
 
-# flash firmware to left, right, or both halves (double-tap reset first)
-# usage: just flash left | just flash right | just flash all
+# flash firmware to left, right, dongle, or all three (double-tap reset first)
+# usage: just flash left | just flash right | just flash dongle | just flash all
 flash side="all": (build side)
     #!/usr/bin/env bash
     set -euo pipefail
     volume="/Volumes/XIAO-SENSE"
 
     _flash_one() {
-        local uf2="$1"
-        echo "→ Double-tap reset on the keyboard half, then press Enter..."
+        local label="$1"
+        local uf2="$2"
+        echo "→ Double-tap reset on the $label, then press Enter..."
         read -r
         echo "  Waiting for $volume..."
         for i in $(seq 1 30); do
@@ -77,14 +80,17 @@ flash side="all": (build side)
     }
 
     if [[ "{{ side }}" == "all" ]]; then
-        _flash_one "corny_left+rgbled_adapter-seeeduino_xiao_ble.uf2"
-        _flash_one "corny_right+rgbled_adapter-seeeduino_xiao_ble.uf2"
+        _flash_one "left half"   "corny_left+rgbled_adapter-xiao_ble_nrf52840_zmk.uf2"
+        _flash_one "right half"  "corny_right+rgbled_adapter-xiao_ble_nrf52840_zmk.uf2"
+        _flash_one "dongle"      "corny_dongle+rgbled_adapter-xiao_ble_nrf52840_zmk.uf2"
     elif [[ "{{ side }}" == "left" ]]; then
-        _flash_one "corny_left+rgbled_adapter-seeeduino_xiao_ble.uf2"
+        _flash_one "left half"   "corny_left+rgbled_adapter-xiao_ble_nrf52840_zmk.uf2"
     elif [[ "{{ side }}" == "right" ]]; then
-        _flash_one "corny_right+rgbled_adapter-seeeduino_xiao_ble.uf2"
+        _flash_one "right half"  "corny_right+rgbled_adapter-xiao_ble_nrf52840_zmk.uf2"
+    elif [[ "{{ side }}" == "dongle" ]]; then
+        _flash_one "dongle"      "corny_dongle+rgbled_adapter-xiao_ble_nrf52840_zmk.uf2"
     else
-        echo "Unknown side '{{ side }}' — use left, right, or all" >&2 && exit 1
+        echo "Unknown side '{{ side }}' — use left, right, dongle, or all" >&2 && exit 1
     fi
 
 # clear build cache and artifacts
